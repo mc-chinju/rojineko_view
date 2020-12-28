@@ -1,9 +1,11 @@
 <template>
-  <div>
+  <v-row dense>
     <template v-for="cat in cats">
-      <cat-container :key="cat.uuid" :cat="cat" />
+      <v-col :key="cat.uuid" cols="12" lg="6" md="12">
+        <cat-container :cat="cat" />
+      </v-col>
     </template>
-  </div>
+  </v-row>
 </template>
 
 <script>
