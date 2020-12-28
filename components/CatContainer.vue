@@ -1,6 +1,10 @@
 <template>
   <div :class="$style.cat_container">
-    <img :src="cat.url" :alt="cat.uuid" :class="$style.image" />
+    <img
+      :src="cat.url"
+      :alt="cat.uuid"
+      :class="[$style.image, { [$style.small]: $vuetify.breakpoint.mdAndDown }]"
+    />
 
     <div :class="$style.info_container">
       <div><span :class="$style.label">撮影場所:</span> {{ cat.address }}</div>
@@ -9,7 +13,6 @@
         {{ cat.createDate | moment }}
       </div>
     </div>
-    <v-divider></v-divider>
   </div>
 </template>
 
@@ -26,8 +29,11 @@ export default {
 
 <style lang="scss" module>
 .cat_container {
-  padding-bottom: 16px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
   margin-bottom: 16px;
+  border-bottom: 1px solid #ddd;
 
   .info_container {
     padding: 16px 0;
@@ -35,8 +41,13 @@ export default {
 
   .image {
     max-width: 100%;
-    max-height: 500px;
+    height: 500px;
     object-fit: contain;
+
+    &.small {
+      height: unset;
+      max-height: 500px;
+    }
   }
 
   .label {
