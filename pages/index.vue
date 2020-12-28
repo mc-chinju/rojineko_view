@@ -9,7 +9,8 @@
             <span :class="$style.label">撮影場所:</span> {{ cat.address }}
           </div>
           <div>
-            <span :class="$style.label">撮影日:</span> {{ cat.createDate }}
+            <span :class="$style.label">撮影日:</span>
+            {{ cat.createDate | moment }}
           </div>
         </div>
         <v-divider></v-divider>
