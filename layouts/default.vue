@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <v-app-bar fixed app>
-      <v-toolbar-title v-text="title" />
+    <v-app-bar fixed app flat color="blue">
+      <v-toolbar-title :class="$style.toolbar_title" v-text="title" />
     </v-app-bar>
     <v-main>
       <v-container>
@@ -23,3 +23,10 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" module>
+.toolbar_title {
+  color: #ffffff;
+  font-weight: bold;
+}
+</style>
